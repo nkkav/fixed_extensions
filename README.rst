@@ -6,28 +6,32 @@
 | **Title**         | fixed_extensions (VHDL fixed-point arithmetic extensions |
 |                   | package)                                                 |
 +-------------------+----------------------------------------------------------+
-| **Author**        | Nikolaos Kavvadias 2011, 2012, 2013, 2014                |
+| **Author**        | Nikolaos Kavvadias 2011-2020                             |
 +-------------------+----------------------------------------------------------+
-| **Contact**       | nikos@nkavvadias.com                                     |
+| **Contact**       | nikolaos.kavvadias@gmail.com                             |
 +-------------------+----------------------------------------------------------+
 | **Website**       | http://www.nkavvadias.com                                |
 +-------------------+----------------------------------------------------------+
-| **Release Date**  | 26 September 2014                                        |
+| **Release Date**  | 07 November 2020                                         |
 +-------------------+----------------------------------------------------------+
 | **Version**       | 0.1.1                                                    |
 +-------------------+----------------------------------------------------------+
 | **Rev. history**  |                                                          |
 +-------------------+----------------------------------------------------------+
-|        **v0.1.1** | 26-09-2014                                               |
+|        **v0.1.2** | 2020-11-07                                               |
+|                   |                                                          |
+|                   | Add makefile and scripts for GHDL simulation.            |
++-------------------+----------------------------------------------------------+
+|        **v0.1.1** | 2014-09-26                                               |
 |                   |                                                          |
 |                   | Updated README and file organization for Github. Renamed |
 |                   | COPYING.BSD to LICENSE.                                  |
 +-------------------+----------------------------------------------------------+
-|        **v0.1.0** | 21-02-2014                                               |
+|        **v0.1.0** | 2014-02-21                                               |
 |                   |                                                          |
 |                   | Changed documentation format to RestructuredText.        |
 +-------------------+----------------------------------------------------------+
-|        **v0.0.5** | 25-07-2011                                               |
+|        **v0.0.5** | 2011-07-25                                               |
 |                   |                                                          |
 |                   | First public release.                                    |
 +-------------------+----------------------------------------------------------+
@@ -78,21 +82,13 @@ The ``fixed_extensions`` distribution includes the following files:
 +-----------------------+------------------------------------------------------+
 | AUTHORS               | List of authors.                                     |
 +-----------------------+------------------------------------------------------+
-| BUGS                  | Bug list.                                            |
-+-----------------------+------------------------------------------------------+
-| ChangeLog             | A log for code changes.                              |
-+-----------------------+------------------------------------------------------+
-| COPYING.BSD           | The modified BSD license.                            |
+| LICENSE               | The modified BSD license.                            |
 +-----------------------+------------------------------------------------------+
 | README                | This file.                                           |
 +-----------------------+------------------------------------------------------+
 | README.html           | HTML version of README.                              |
 +-----------------------+------------------------------------------------------+
 | README.pdf            | PDF version of README.                               |
-+-----------------------+------------------------------------------------------+
-| THANKS                | Acknowledgements.                                    |
-+-----------------------+------------------------------------------------------+
-| TODO                  | A list of future enhancements.                       |
 +-----------------------+------------------------------------------------------+
 | VERSION               | Current version of the project sources.              |
 +-----------------------+------------------------------------------------------+
@@ -118,6 +114,22 @@ The ``fixed_extensions`` distribution includes the following files:
 | /sim/rtl_sim/bin      | RTL simulation scripts directory                     |
 +-----------------------+------------------------------------------------------+
 | run.sh                | A bash script for testing the package.               |
++-----------------------+------------------------------------------------------+
+| testrounding.mk       | Makefile for GHDL simulation.                        |
++-----------------------+------------------------------------------------------+
+| testroundings.do      | Modelsim macro script for testing sfixed arithmetic. |
++-----------------------+------------------------------------------------------+
+| testroundings.sh      | Bash script for running an sfixed simulation.        |
++-----------------------+------------------------------------------------------+
+| testroundingu.do      | Modelsim macro script for testing ufixed arithmetic. |
++-----------------------+------------------------------------------------------+
+| testroundingu.sh      | Bash script for running an ufixed simulation.        |
++-----------------------+------------------------------------------------------+
+| /sim/rtl_sim/run      | Simulation run scripts directory                     |
++-----------------------+------------------------------------------------------+
+| clean.sh              | Clean up the artifacts from the GHDL simulation.     |
++-----------------------+------------------------------------------------------+
+| ghdl.sh               | Simulation driver script for GHDL.                   |
 +-----------------------+------------------------------------------------------+
 | testroundings.do      | Modelsim macro script for testing sfixed arithmetic. |
 +-----------------------+------------------------------------------------------+
@@ -165,6 +177,14 @@ performed as:
 and 
 
 | ``$./testroundingu.sh``
+
+For GHDL do the followng:
+
+| ``$ ./ghdl.sh roundings``
+
+or 
+
+| ``$ ./ghdl.sh roundingu``
 
 
 4. Prerequisites

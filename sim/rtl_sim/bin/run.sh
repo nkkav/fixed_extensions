@@ -1,12 +1,11 @@
 #!/bin/bash
 
-# Test sfixed rounding
-#../../../sw/gentestround -signed -iw 4 -fw 4 -step 0.25 ../../../gen/vhdl/testroundings.vhd
-#./testroundings.sh
+# u or s
+SIGNEDNESS=$1
 
-# Test ufixed rounding
-../../../sw/gentestround -unsigned -iw 4 -fw 4 -step 0.25 ../../../gen/vhdl/testroundingu.vhd
-./testroundingu.sh
+# Test [s|u]fixed rounding
+../../../sw/gentestround -signed -iw 4 -fw 4 -step 0.25 ../../../gen/vhdl/testrounding${SIGNEDNESS}.vhd
+./testrounding${SIGNEDNESS}.sh
 
 if [ "$SECONDS" -eq 1 ]
 then
@@ -15,4 +14,3 @@ else
   units=seconds
 fi
 echo "This script has been running for $SECONDS $units."
-exit 0

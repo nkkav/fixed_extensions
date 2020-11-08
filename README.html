@@ -3,13 +3,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="Docutils 0.11: http://docutils.sourceforge.net/" />
+<meta name="generator" content="Docutils 0.14: http://docutils.sourceforge.net/" />
 <title>fixed_extensions user manual</title>
 <style type="text/css">
 
 /*
 :Author: David Goodger (goodger@python.org)
-:Id: $Id$
+:Id: $Id: html4css1.css 7952 2016-07-26 18:15:59Z milde $
 :Copyright: This stylesheet has been placed in the public domain.
 
 Default cascading style sheet for the HTML output of Docutils.
@@ -36,6 +36,14 @@ table.borderless td, table.borderless th {
 
 .hidden {
   display: none }
+
+.subscript {
+  vertical-align: sub;
+  font-size: smaller }
+
+.superscript {
+  vertical-align: super;
+  font-size: smaller }
 
 a.toc-backref {
   text-decoration: none ;
@@ -161,18 +169,23 @@ h2.subtitle {
 hr.docutils {
   width: 75% }
 
-img.align-left, .figure.align-left, object.align-left {
+img.align-left, .figure.align-left, object.align-left, table.align-left {
   clear: left ;
   float: left ;
   margin-right: 1em }
 
-img.align-right, .figure.align-right, object.align-right {
+img.align-right, .figure.align-right, object.align-right, table.align-right {
   clear: right ;
   float: right ;
   margin-left: 1em }
 
 img.align-center, .figure.align-center, object.align-center {
   display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.align-center {
   margin-left: auto;
   margin-right: auto;
 }
@@ -193,6 +206,15 @@ div.align-right {
 
 /* div.align-center * { */
 /*   text-align: left } */
+
+.align-top    {
+  vertical-align: top }
+
+.align-middle {
+  vertical-align: middle }
+
+.align-bottom {
+  vertical-align: bottom }
 
 ol.simple, ul.simple {
   margin-bottom: 1em }
@@ -352,16 +374,16 @@ ul.auto-toc {
 package)</td>
 </tr>
 <tr><td><strong>Author</strong></td>
-<td>Nikolaos Kavvadias 2011, 2012, 2013, 2014</td>
+<td>Nikolaos Kavvadias 2011-2020</td>
 </tr>
 <tr><td><strong>Contact</strong></td>
-<td><a class="reference external" href="mailto:nikos&#64;nkavvadias.com">nikos&#64;nkavvadias.com</a></td>
+<td><a class="reference external" href="mailto:nikolaos.kavvadias&#64;gmail.com">nikolaos.kavvadias&#64;gmail.com</a></td>
 </tr>
 <tr><td><strong>Website</strong></td>
 <td><a class="reference external" href="http://www.nkavvadias.com">http://www.nkavvadias.com</a></td>
 </tr>
 <tr><td><strong>Release Date</strong></td>
-<td>26 September 2014</td>
+<td>07 November 2020</td>
 </tr>
 <tr><td><strong>Version</strong></td>
 <td>0.1.1</td>
@@ -369,19 +391,24 @@ package)</td>
 <tr><td><strong>Rev. history</strong></td>
 <td>&nbsp;</td>
 </tr>
+<tr><td><strong>v0.1.2</strong></td>
+<td><p class="first">2020-11-07</p>
+<p class="last">Add makefile and scripts for GHDL simulation.</p>
+</td>
+</tr>
 <tr><td><strong>v0.1.1</strong></td>
-<td><p class="first">26-09-2014</p>
+<td><p class="first">2014-09-26</p>
 <p class="last">Updated README and file organization for Github. Renamed
 COPYING.BSD to LICENSE.</p>
 </td>
 </tr>
 <tr><td><strong>v0.1.0</strong></td>
-<td><p class="first">21-02-2014</p>
+<td><p class="first">2014-02-21</p>
 <p class="last">Changed documentation format to RestructuredText.</p>
 </td>
 </tr>
 <tr><td><strong>v0.0.5</strong></td>
-<td><p class="first">25-07-2011</p>
+<td><p class="first">2011-07-25</p>
 <p class="last">First public release.</p>
 </td>
 </tr>
@@ -433,13 +460,7 @@ corresponding Github repository: <a class="reference external" href="http://gith
 <tr><td>AUTHORS</td>
 <td>List of authors.</td>
 </tr>
-<tr><td>BUGS</td>
-<td>Bug list.</td>
-</tr>
-<tr><td>ChangeLog</td>
-<td>A log for code changes.</td>
-</tr>
-<tr><td>COPYING.BSD</td>
+<tr><td>LICENSE</td>
 <td>The modified BSD license.</td>
 </tr>
 <tr><td>README</td>
@@ -450,12 +471,6 @@ corresponding Github repository: <a class="reference external" href="http://gith
 </tr>
 <tr><td>README.pdf</td>
 <td>PDF version of README.</td>
-</tr>
-<tr><td>THANKS</td>
-<td>Acknowledgements.</td>
-</tr>
-<tr><td>TODO</td>
-<td>A list of future enhancements.</td>
 </tr>
 <tr><td>VERSION</td>
 <td>Current version of the project sources.</td>
@@ -493,6 +508,30 @@ _sim.vhd</td>
 </tr>
 <tr><td>run.sh</td>
 <td>A bash script for testing the package.</td>
+</tr>
+<tr><td>testrounding.mk</td>
+<td>Makefile for GHDL simulation.</td>
+</tr>
+<tr><td>testroundings.do</td>
+<td>Modelsim macro script for testing sfixed arithmetic.</td>
+</tr>
+<tr><td>testroundings.sh</td>
+<td>Bash script for running an sfixed simulation.</td>
+</tr>
+<tr><td>testroundingu.do</td>
+<td>Modelsim macro script for testing ufixed arithmetic.</td>
+</tr>
+<tr><td>testroundingu.sh</td>
+<td>Bash script for running an ufixed simulation.</td>
+</tr>
+<tr><td>/sim/rtl_sim/run</td>
+<td>Simulation run scripts directory</td>
+</tr>
+<tr><td>clean.sh</td>
+<td>Clean up the artifacts from the GHDL simulation.</td>
+</tr>
+<tr><td>ghdl.sh</td>
+<td>Simulation driver script for GHDL.</td>
 </tr>
 <tr><td>testroundings.do</td>
 <td>Modelsim macro script for testing sfixed arithmetic.</td>
@@ -552,6 +591,14 @@ performed as:</p>
 <p>and</p>
 <div class="line-block">
 <div class="line"><tt class="docutils literal"><span class="pre">$./testroundingu.sh</span></tt></div>
+</div>
+<p>For GHDL do the followng:</p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">$ ./ghdl.sh roundings</tt></div>
+</div>
+<p>or</p>
+<div class="line-block">
+<div class="line"><tt class="docutils literal">$ ./ghdl.sh roundingu</tt></div>
 </div>
 </div>
 <div class="section" id="prerequisites">

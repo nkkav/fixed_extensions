@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -O2
+CFLAGS = -Wall -Wextra -pedantic -O2
 EXE = .exe
 
 all: gentestround

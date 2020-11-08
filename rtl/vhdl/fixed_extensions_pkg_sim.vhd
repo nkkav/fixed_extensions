@@ -13,23 +13,23 @@
 --           * bitinsert : bit-field insertion to word
 --           * bitextract: bit-field extraction from word
 --             
--- Author  : Nikolaos Kavvadias (C) 2011, 2012, 2013, 2014
+-- Author  : Nikolaos Kavvadias (C) 2011-2020
 -- Date    : 25-Jul-2011
--- Revision: 0.0.0 (01/05/11)
---           Initial version. Supports ceil, fix, floor, round, nearest, 
---           convergent based on their MATLAB documentation.
---           0.0.1 (03/05/11)
---           Added bitinsert.
---           0.0.2 (16/07/11)
---           Added bitextract (sfixed, ufixed), bitinsert (ufixed). Commented 
---           non-synthesizable part (assertions) of bitinsert.
+-- Revision: 0.0.5 (25/07/11)
+--           Design edited for simulation-oriented use.
+--           0.0.4 (21/07/11)
+--           Fixed more bugs regarding fix, round and convergent.
 --           0.0.3 (19/07/11)
 --           Fixed ceil bug with rounding integral (zero fractional part) 
 --           values.
---           0.0.4 (21/07/11)
---           Fixed more bugs regarding fix, round and convergent.
---           0.0.5 (25/07/11)
---           Design edited for simulation-oriented use.
+--           0.0.2 (16/07/11)
+--           Added bitextract (sfixed, ufixed), bitinsert (ufixed). Commented 
+--           non-synthesizable part (assertions) of bitinsert.
+--           0.0.1 (03/05/11)
+--           Added bitinsert.
+--           0.0.0 (01/05/11)
+--           Initial version. Supports ceil, fix, floor, round, nearest, 
+--           convergent based on their MATLAB documentation.
 --------------------------------------------------------------------------------
 
 use STD.TEXTIO.all;

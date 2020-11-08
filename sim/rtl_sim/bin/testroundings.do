@@ -1,4 +1,4 @@
-# Author: Nikolaos Kavvadias (C) 2009, 2010, 2011, 2012, 2013, 2014
+# Author: Nikolaos Kavvadias (C) 2009-2020
 vlib work
 vcom ../src/math_real.vhd
 vcom ../src/fixed_float_types_custom.vhd
